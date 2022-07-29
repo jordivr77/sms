@@ -1,23 +1,42 @@
 package com.sms.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Entity
 @Data
-public class Paciente {
+@Table(name = "TPACIENTES")
+public class Paciente implements Serializable{
 
 	@Id
-	@GeneratedValue
 	private Long id;
+	
+	@Column( name = "NOMBRE")
 	private String nombre;
+	
+	@Column( name = "APELLIDO1")
 	private String apellido1;
+	
+	@Column( name = "APELLIDO2")
 	private String apellido2;
+	
+	@Column( name = "EMAIL")
 	private String email;
+	
+	@Column( name = "PDFDIAGNOSTICO")
 	private String pdfDiagnostico;
+	
+	@ManyToOne
+	private Paciente paciente;
+	
 	public Long getId() {
 		return id;
 	}

@@ -2,10 +2,13 @@ package com.sms.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -53,5 +56,11 @@ public class THospitales implements Serializable {
 	
 	@Column( name = "DESCHOSPITAL")
 	private String descripcionHospital;
+	
+	@ManyToOne
+	private THospitales tHospitales;
+	
+	@OneToMany( mappedBy = "paciente")
+	private List<Paciente> tPacientes;
 
 }
