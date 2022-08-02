@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sms.model.Paciente;
+import com.sms.model.TPacientes;
 import com.sms.repository.PacienteRepository;
 
 @Service
@@ -15,7 +15,7 @@ public class PacienteService {
 	private PacienteRepository pacienteRepository;
 
 	// Obtenemos todos los pacientes que hay en la BD
-	public List<Paciente> obtenerTodos() {
+	public List<TPacientes> obtenerTodos() {
 		return pacienteRepository.findAll();
 	}
 }
