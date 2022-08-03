@@ -15,8 +15,11 @@ import lombok.Data;
 public class TEstados_ValDoc implements Serializable {
 	
 	@Id
-	@Column(name = "CODIGO")
 	private Long id;
+	
+	@Column(name = "CODIGO")
+	private String codigo;
+	
 	@Column(name = "DESCRIPCION")
 	private String descripcion;
 		

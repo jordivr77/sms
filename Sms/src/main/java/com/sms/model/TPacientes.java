@@ -23,7 +23,7 @@ import lombok.Data;
 public class TPacientes implements Serializable {
 
 	@Id
-	@GeneratedValue
+	@Column
 	private Long id;
 	
 	@Column( name = "NOMBRE")
@@ -41,10 +41,13 @@ public class TPacientes implements Serializable {
 	@Column( name = "PDFDIAGNOSTICO")
 	private String pdfDiagnostico;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "THOSPITALES_ID")
-	private TPacientes tPacientes;
+	/*@ManyToOne
+	@JoinColumn(name = "idHospitales")
+	private TPacientes tPacientes;*/
 	
-	@OneToMany(mappedBy = "tPacientes", cascade = CascadeType.ALL)
-	private List<TPacientes> lTPacientes = new ArrayList<>();
+	@ManyToOne
+	private THospitales tHospitales;
+	
+	/*@OneToMany(mappedBy = "tPacientes", cascade = CascadeType.ALL)
+	private List<TPacientes> lTPacientes = new ArrayList<>();*/
 }

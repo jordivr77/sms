@@ -21,7 +21,7 @@ import lombok.Data;
 public class TAreasClinicas implements Serializable {
 
 	@Id
-	@GeneratedValue
+	@Column
 	private Long id;
 	
 	@Column( name = "CODAREACLINICA")
@@ -42,8 +42,12 @@ public class TAreasClinicas implements Serializable {
 	@Column( name = "FECRE")
 	private Date fechaRegistro;
 	
-	@OneToMany(mappedBy = "tHospitales", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "tAreasClinicas")
 	private List<THospitales> lTHospitales = new ArrayList<>();
+	
+	/*@OneToMany(mappedBy = "tHospitales")
+	private List<THospitales> lTHospitales = new ArrayList<>();*/
+	
 	
 	
 }

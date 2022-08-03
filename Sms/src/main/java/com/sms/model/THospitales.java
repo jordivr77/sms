@@ -25,7 +25,7 @@ import lombok.Data;
 public class THospitales implements Serializable {
 	
 	@Id
-	@GeneratedValue
+	@Column
 	private Long id;
 	
 	@Column( name = "CEGA")
@@ -65,13 +65,23 @@ public class THospitales implements Serializable {
 	private String descripcionHospital;
 	
 	
-	@ManyToOne
-	@JoinColumn(name = "TAREASCLINICAS_ID")
+	/*@ManyToOne
+	@JoinColumn(name = "idAreasClinicas")
 	private THospitales tHospitales;
 	
+	@OneToMany(mappedBy = "tPacientes")
+	private List<TPacientes> listaTPacientes = new ArrayList<>();*/
+	
 	@ManyToOne
+	private TAreasClinicas tAreasClinicas;
+	
+	@OneToMany(mappedBy = "tHospitales")
+	private List<TPacientes> lTPacientes = new ArrayList<>();
+	
+	
+	/*@ManyToOne
 	@JoinColumn(name = "TPACIENTES_ID")
-	private TPacientes tPacientes;
+	private TPacientes tPacientes;*/
 	
 	
 	
