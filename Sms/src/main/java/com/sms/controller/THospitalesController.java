@@ -33,7 +33,7 @@ public class THospitalesController {
 		tHospitalesService.obtenerHospitales().forEach(hospi -> {
 			
 			SelectedItemDTO hospitalesMurcia = new SelectedItemDTO();
-			hospitalesMurcia.setValue(hospi.getCega());
+			hospitalesMurcia.setValue(hospi.getInicialesHospital());
 			hospitalesMurcia.setLabel(hospi.getDescripcionHospital());
 			
 			hospitales.add(hospitalesMurcia);
