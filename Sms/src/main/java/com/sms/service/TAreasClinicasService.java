@@ -2,6 +2,7 @@ package com.sms.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +12,16 @@ import com.sms.repository.TAreasClinicasRepository;
 @Service
 public class TAreasClinicasService {
 	
+	@Autowired
 	TAreasClinicasRepository tAreasClinicasRepository;
+	
 	
 	@Cacheable(value = "areas", key = "#id")
 	public List<TAreasClinicas> obtenerAreasClinicas() {
 		return tAreasClinicasRepository.findAll();
 	}
+	
+	
 	
 	
 	/*SessionFactory sessionFactory;
